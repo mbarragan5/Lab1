@@ -49,7 +49,7 @@ int main(void)
             case RUN:
             {
                 LED1 = ON;
-                LED1 = OFF;
+                LED2 = OFF;
                 break;
             }
 

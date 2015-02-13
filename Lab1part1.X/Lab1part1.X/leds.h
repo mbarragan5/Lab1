@@ -8,8 +8,8 @@
 #ifndef LEDS_H
 #define	LEDS_H
 
-#define LED1 LATBbits.LATB2
-#define LED2 LATBbits.LATB3
+#define LED1 LATAbits.LATA0
+#define LED2 LATAbits.LATA1
 
 #define OFF 1;
 #define ON 0;
