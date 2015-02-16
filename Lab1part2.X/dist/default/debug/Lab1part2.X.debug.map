@@ -6,7 +6,7 @@ Tool Name:
 Command:
   -p24FJ64GA002 \
   -o \
-  dist/default/production/Lab1part2.X.production.elf \
+  dist/default/debug/Lab1part2.X.debug.elf \
   -Lc:/program files (x86)/microchip/xc16/v1.24/bin/bin/.. \
   -Lc:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib \
   -Lc:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib/PIC24E \
@@ -21,14 +21,22 @@ Command:
   -Lc:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../support/dsPIC33E/gld \
   -Lc:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib/dsPIC33F \
   -Lc:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../support/dsPIC33F/gld \
-  build/default/production/cn.o \
-  build/default/production/initLEDs.o \
-  build/default/production/lab1p2.o \
-  build/default/production/lcd.o \
-  build/default/production/timer.o \
-  build/default/production/UART.o \
+  build/default/debug/cn.o \
+  build/default/debug/initLEDs.o \
+  build/default/debug/lab1p2.o \
+  build/default/debug/lcd.o \
+  build/default/debug/timer.o \
+  build/default/debug/UART.o \
+  -TC:\Users\Matthew\AppData\Local\Temp\tmp00001908.00 \
+  -TC:\Users\Matthew\AppData\Local\Temp\tmp00001908.01 \
+  -TC:\Users\Matthew\AppData\Local\Temp\tmp00001908.02 \
+  -TC:\Users\Matthew\AppData\Local\Temp\tmp00001908.03 \
+  -TC:\Users\Matthew\AppData\Local\Temp\tmp00001908.04 \
   --defsym=__MPLAB_BUILD=1 \
-  -Tp24FJ64GA002.gld.00 \
+  --defsym=__MPLAB_DEBUG=1 \
+  --defsym=__DEBUG=1 \
+  --defsym=__MPLAB_DEBUGGER_PK3=1 \
+  -Tp24FJ64GA002.gld.05 \
   --stack=16 \
   --check-sections \
   --data-init \
@@ -40,7 +48,7 @@ Command:
   --stackguard=16 \
   --no-force-link \
   --smart-io \
-  -Map=dist/default/production/Lab1part2.X.production.map \
+  -Map=dist/default/debug/Lab1part2.X.debug.map \
   --report-mem \
   -start-group \
   --library=pic30-elf \
@@ -61,18 +69,23 @@ Program Memory  [Origin = 0x200, Length = 0xa9fc]
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200                0x9e            0xed  (237)
-.text                        0x29e               0x1de           0x2cd  (717)
-.dinit                       0x47c                 0x2             0x3  (3)
+.text                        0x29e               0x1e2           0x2d3  (723)
+.dinit                       0x480                 0x2             0x3  (3)
 
-                     Total program memory used (bytes):          0x3bd  (957) 1%
+                     Total program memory used (bytes):          0x3c3  (963) 1%
 
 
 Data Memory  [Origin = 0x800, Length = 0x2000]
 
 section                    address      alignment gaps    total length  (dec)
 -------                    -------      --------------    -------------------
+reserve_data_0x800           0x800                0x20            0x20  (32)
+reserve_data_0x820           0x820                 0x2             0x2  (2)
+reserve_data_0x822           0x822                 0x2             0x2  (2)
+reserve_data_0x824           0x824                 0x2             0x2  (2)
+reserve_data_0x826           0x826                0x2a            0x2a  (42)
 
-                        Total data memory used (bytes):              0  (0) 
+                        Total data memory used (bytes):           0x50  (80) <1%
 
 
 Dynamic Memory Usage
@@ -80,9 +93,9 @@ Dynamic Memory Usage
 region                     address                      maximum length  (dec)
 ------                     -------                      ---------------------
 heap                             0                                   0  (0)
-stack                        0x800                              0x2000  (8192)
+stack                        0x850                              0x1fb0  (8112)
 
-                        Maximum dynamic memory (bytes):         0x2000  (8192)
+                        Maximum dynamic memory (bytes):         0x1fb0  (8112)
 
 
 External Symbols in Program Memory (by address):
@@ -100,12 +113,12 @@ External Symbols in Program Memory (by address):
                   0x0003b8                  _clearLCD
                   0x0003c6                  _moveCursorLCD
                   0x0003d0                  _testLCD
-                  0x0003dc                  _initLEDs
-                  0x0003f2                  _turnOnLED
-                  0x000410                  _delayUs
-                  0x000440                  _initUART
-                  0x000468                  _initCNForSW1
-                  0x000476                  _main
+                  0x0003e0                  _initLEDs
+                  0x0003f6                  _turnOnLED
+                  0x000414                  _delayUs
+                  0x000444                  _initUART
+                  0x00046c                  _initCNForSW1
+                  0x00047a                  _main
 
 External Symbols in Program Memory (by name):
 
@@ -115,17 +128,17 @@ External Symbols in Program Memory (by name):
                   0x00022c                  __psv_init
                   0x000200                  __resetPRI
                   0x0003b8                  _clearLCD
-                  0x000410                  _delayUs
-                  0x000468                  _initCNForSW1
+                  0x000414                  _delayUs
+                  0x00046c                  _initCNForSW1
                   0x000334                  _initLCD
-                  0x0003dc                  _initLEDs
-                  0x000440                  _initUART
-                  0x000476                  _main
+                  0x0003e0                  _initLEDs
+                  0x000444                  _initUART
+                  0x00047a                  _main
                   0x0003c6                  _moveCursorLCD
                   0x000322                  _printCharLCD
                   0x0003b0                  _printStringLCD
                   0x0003d0                  _testLCD
-                  0x0003f2                  _turnOnLED
+                  0x0003f6                  _turnOnLED
                   0x00029e                  _writeFourBits
                   0x000302                  _writeLCD
 
@@ -144,13 +157,41 @@ CONFIG1          0x00abfe           0x000002
 
 Linker script and memory map
 
-LOAD build/default/production/cn.o
-LOAD build/default/production/initLEDs.o
-LOAD build/default/production/lab1p2.o
-LOAD build/default/production/lcd.o
-LOAD build/default/production/timer.o
-LOAD build/default/production/UART.o
+LOAD build/default/debug/cn.o
+LOAD build/default/debug/initLEDs.o
+LOAD build/default/debug/lab1p2.o
+LOAD build/default/debug/lcd.o
+LOAD build/default/debug/timer.o
+LOAD build/default/debug/UART.o
+
+reserve_data_0x800
+                    0x0800         0x20
+                    0x0820                  . = 0x20
+ *fill*             0x0800         0x2000
+
+reserve_data_0x820
+                    0x0820          0x2
+                    0x0822                  . = 0x2
+ *fill*             0x0820          0x200
+
+reserve_data_0x822
+                    0x0822          0x2
+                    0x0824                  . = 0x2
+ *fill*             0x0822          0x200
+
+reserve_data_0x824
+                    0x0824          0x2
+                    0x0826                  . = 0x2
+ *fill*             0x0824          0x200
+
+reserve_data_0x826
+                    0x0826         0x2a
+                    0x0850                  . = 0x2a
+ *fill*             0x0826         0x2a00
                     0x0001                  __MPLAB_BUILD = 0x1
+                    0x0001                  __MPLAB_DEBUG = 0x1
+                    0x0001                  __DEBUG = 0x1
+                    0x0001                  __MPLAB_DEBUGGER_PK3 = 0x1
 LOAD c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib/PIC24F\libpPIC24Fxxx-elf.a
 LOAD c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libfx-elf.a
                     0xabfc                  __CONFIG2 = 0xabfc
@@ -193,59 +234,59 @@ usercode
 
 __CONFIG2         0x00abfc          0x2
  *(__CONFIG2.sec*)
- __CONFIG2.sec    0x00abfc          0x2 build/default/production/lab1p2.o
+ __CONFIG2.sec    0x00abfc          0x2 build/default/debug/lab1p2.o
 
 __CONFIG1         0x00abfe          0x2
  *(__CONFIG1.sec*)
- __CONFIG1.sec    0x00abfe          0x2 build/default/production/lab1p2.o
+ __CONFIG1.sec    0x00abfe          0x2 build/default/debug/lab1p2.o
 
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x1916
+.debug_info       0x000000       0x1927
  *(.debug_info)
- .debug_info      0x000000        0x5a1 build/default/production/cn.o
- .debug_info      0x0005a1        0x435 build/default/production/initLEDs.o
- .debug_info      0x0009d6        0x112 build/default/production/lab1p2.o
- .debug_info      0x000ae8        0x5a2 build/default/production/lcd.o
- .debug_info      0x00108a        0x355 build/default/production/timer.o
- .debug_info      0x0013df        0x537 build/default/production/UART.o
+ .debug_info      0x000000        0x5a1 build/default/debug/cn.o
+ .debug_info      0x0005a1        0x435 build/default/debug/initLEDs.o
+ .debug_info      0x0009d6        0x112 build/default/debug/lab1p2.o
+ .debug_info      0x000ae8        0x5b3 build/default/debug/lcd.o
+ .debug_info      0x00109b        0x355 build/default/debug/timer.o
+ .debug_info      0x0013f0        0x537 build/default/debug/UART.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000        0x4ae
+.debug_abbrev     0x000000        0x4b0
  *(.debug_abbrev)
- .debug_abbrev    0x000000         0xbd build/default/production/cn.o
- .debug_abbrev    0x0000bd         0xb2 build/default/production/initLEDs.o
- .debug_abbrev    0x00016f         0x47 build/default/production/lab1p2.o
- .debug_abbrev    0x0001b6         0xf5 build/default/production/lcd.o
- .debug_abbrev    0x0002ab        0x10b build/default/production/timer.o
- .debug_abbrev    0x0003b6         0xf8 build/default/production/UART.o
+ .debug_abbrev    0x000000         0xbd build/default/debug/cn.o
+ .debug_abbrev    0x0000bd         0xb2 build/default/debug/initLEDs.o
+ .debug_abbrev    0x00016f         0x47 build/default/debug/lab1p2.o
+ .debug_abbrev    0x0001b6         0xf7 build/default/debug/lcd.o
+ .debug_abbrev    0x0002ad        0x10b build/default/debug/timer.o
+ .debug_abbrev    0x0003b8         0xf8 build/default/debug/UART.o
 
-.debug_line       0x000000        0x6b2
+.debug_line       0x000000        0x6ba
  *(.debug_line)
- .debug_line      0x000000         0xc3 build/default/production/cn.o
- .debug_line      0x0000c3        0x113 build/default/production/initLEDs.o
- .debug_line      0x0001d6         0xaf build/default/production/lab1p2.o
- .debug_line      0x000285        0x272 build/default/production/lcd.o
- .debug_line      0x0004f7         0xe6 build/default/production/timer.o
- .debug_line      0x0005dd         0xd5 build/default/production/UART.o
+ .debug_line      0x000000         0xc3 build/default/debug/cn.o
+ .debug_line      0x0000c3        0x113 build/default/debug/initLEDs.o
+ .debug_line      0x0001d6         0xaf build/default/debug/lab1p2.o
+ .debug_line      0x000285        0x27a build/default/debug/lcd.o
+ .debug_line      0x0004ff         0xe6 build/default/debug/timer.o
+ .debug_line      0x0005e5         0xd5 build/default/debug/UART.o
 
 .debug_frame      0x000000        0x158
  *(.debug_frame)
- .debug_frame     0x000000         0x24 build/default/production/cn.o
- .debug_frame     0x000024         0x34 build/default/production/initLEDs.o
- .debug_frame     0x000058         0x24 build/default/production/lab1p2.o
- .debug_frame     0x00007c         0x94 build/default/production/lcd.o
- .debug_frame     0x000110         0x24 build/default/production/timer.o
- .debug_frame     0x000134         0x24 build/default/production/UART.o
+ .debug_frame     0x000000         0x24 build/default/debug/cn.o
+ .debug_frame     0x000024         0x34 build/default/debug/initLEDs.o
+ .debug_frame     0x000058         0x24 build/default/debug/lab1p2.o
+ .debug_frame     0x00007c         0x94 build/default/debug/lcd.o
+ .debug_frame     0x000110         0x24 build/default/debug/timer.o
+ .debug_frame     0x000134         0x24 build/default/debug/UART.o
 
 .debug_str        0x000000         0x95
  *(.debug_str)
- .debug_str       0x000000         0x26 build/default/production/cn.o
- .debug_str       0x000026         0x13 build/default/production/initLEDs.o
- .debug_str       0x000039         0x2a build/default/production/lcd.o
- .debug_str       0x000063         0x13 build/default/production/timer.o
- .debug_str       0x000076         0x1f build/default/production/UART.o
+ .debug_str       0x000000         0x26 build/default/debug/cn.o
+ .debug_str       0x000026         0x13 build/default/debug/initLEDs.o
+ .debug_str       0x000039         0x2a build/default/debug/lcd.o
+ .debug_str       0x000063         0x13 build/default/debug/timer.o
+ .debug_str       0x000076         0x1f build/default/debug/UART.o
 
 .debug_loc
  *(.debug_loc)
@@ -257,17 +298,17 @@ __CONFIG1         0x00abfe          0x2
                   0x000000        0x14e
  *(.debug_pubnames)
  .debug_pubnames
-                  0x000000         0x23 build/default/production/cn.o
+                  0x000000         0x23 build/default/debug/cn.o
  .debug_pubnames
-                  0x000023         0x2d build/default/production/initLEDs.o
+                  0x000023         0x2d build/default/debug/initLEDs.o
  .debug_pubnames
-                  0x000050         0x35 build/default/production/lab1p2.o
+                  0x000050         0x35 build/default/debug/lab1p2.o
  .debug_pubnames
-                  0x000085         0x8c build/default/production/lcd.o
+                  0x000085         0x8c build/default/debug/lcd.o
  .debug_pubnames
-                  0x000111         0x1e build/default/production/timer.o
+                  0x000111         0x1e build/default/debug/timer.o
  .debug_pubnames
-                  0x00012f         0x1f build/default/production/UART.o
+                  0x00012f         0x1f build/default/debug/UART.o
 
 .debug_ranges
  *(.debug_ranges)
@@ -275,17 +316,17 @@ __CONFIG1         0x00abfe          0x2
 .debug_aranges    0x000000         0x90
  *(.debug_aranges)
  .debug_aranges
-                  0x000000         0x18 build/default/production/cn.o
+                  0x000000         0x18 build/default/debug/cn.o
  .debug_aranges
-                  0x000018         0x18 build/default/production/initLEDs.o
+                  0x000018         0x18 build/default/debug/initLEDs.o
  .debug_aranges
-                  0x000030         0x18 build/default/production/lab1p2.o
+                  0x000030         0x18 build/default/debug/lab1p2.o
  .debug_aranges
-                  0x000048         0x18 build/default/production/lcd.o
+                  0x000048         0x18 build/default/debug/lcd.o
  .debug_aranges
-                  0x000060         0x18 build/default/production/timer.o
+                  0x000060         0x18 build/default/debug/timer.o
  .debug_aranges
-                  0x000078         0x18 build/default/production/UART.o
+                  0x000078         0x18 build/default/debug/UART.o
 
 .ivt              0x000004         0xfc
                   0x000004          0x4 LONG 0x29a DEFINED (__ReservedTrap0)?ABSOLUTE (__ReservedTrap0):ABSOLUTE (__DefaultInterrupt)
@@ -1123,46 +1164,46 @@ LOAD c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.
 LOAD c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a
 LOAD c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a
 END GROUP
-OUTPUT(dist/default/production/Lab1part2.X.production.elf elf32-pic30)
+OUTPUT(dist/default/debug/Lab1part2.X.debug.elf elf32-pic30)
 LOAD default_isr
 LOAD data_init
 
 .debug_pubtypes
                   0x000090        0x1f7
  .debug_pubtypes
-                  0x000090         0x8a build/default/production/cn.o
+                  0x000090         0x8a build/default/debug/cn.o
  .debug_pubtypes
-                  0x00011a         0x4e build/default/production/initLEDs.o
+                  0x00011a         0x4e build/default/debug/initLEDs.o
  .debug_pubtypes
-                  0x000168         0x12 build/default/production/lab1p2.o
+                  0x000168         0x12 build/default/debug/lab1p2.o
  .debug_pubtypes
-                  0x00017a         0x4e build/default/production/lcd.o
+                  0x00017a         0x4e build/default/debug/lcd.o
  .debug_pubtypes
-                  0x0001c8         0x4e build/default/production/timer.o
+                  0x0001c8         0x4e build/default/debug/timer.o
  .debug_pubtypes
-                  0x000216         0x71 build/default/production/UART.o
+                  0x000216         0x71 build/default/debug/UART.o
 
 __c30_signature
                   0x000287         0x30
  __c30_signature
-                  0x000287          0x6 build/default/production/cn.o
+                  0x000287          0x6 build/default/debug/cn.o
  __c30_signature
-                  0x00028d          0x6 build/default/production/initLEDs.o
+                  0x00028d          0x6 build/default/debug/initLEDs.o
  __c30_signature
-                  0x000293          0x6 build/default/production/lab1p2.o
+                  0x000293          0x6 build/default/debug/lab1p2.o
  __c30_signature
-                  0x000299          0x6 build/default/production/lcd.o
+                  0x000299          0x6 build/default/debug/lcd.o
  __c30_signature
-                  0x00029f          0x6 build/default/production/timer.o
+                  0x00029f          0x6 build/default/debug/timer.o
  __c30_signature
-                  0x0002a5          0x6 build/default/production/UART.o
+                  0x0002a5          0x6 build/default/debug/UART.o
  __c30_signature
                   0x0002ab          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(crt0_standard.o)
  __c30_signature
                   0x0002b1          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(data_init_standard.o)
 
-.text             0x00029e        0x1de
- .text            0x00029e        0x13e build/default/production/lcd.o
+.text             0x00029e        0x1e2
+ .text            0x00029e        0x142 build/default/debug/lcd.o
                   0x00029e                  _writeFourBits
                   0x000302                  _writeLCD
                   0x000322                  _printCharLCD
@@ -1171,17 +1212,17 @@ __c30_signature
                   0x0003b8                  _clearLCD
                   0x0003c6                  _moveCursorLCD
                   0x0003d0                  _testLCD
- .text            0x0003dc         0x34 build/default/production/initLEDs.o
-                  0x0003dc                  _initLEDs
-                  0x0003f2                  _turnOnLED
- .text            0x000410         0x30 build/default/production/timer.o
-                  0x000410                  _delayUs
- .text            0x000440         0x28 build/default/production/UART.o
-                  0x000440                  _initUART
- .text            0x000468          0xe build/default/production/cn.o
-                  0x000468                  _initCNForSW1
- .text            0x000476          0x6 build/default/production/lab1p2.o
-                  0x000476                  _main
+ .text            0x0003e0         0x34 build/default/debug/initLEDs.o
+                  0x0003e0                  _initLEDs
+                  0x0003f6                  _turnOnLED
+ .text            0x000414         0x30 build/default/debug/timer.o
+                  0x000414                  _delayUs
+ .text            0x000444         0x28 build/default/debug/UART.o
+                  0x000444                  _initUART
+ .text            0x00046c          0xe build/default/debug/cn.o
+                  0x00046c                  _initCNForSW1
+ .text            0x00047a          0x6 build/default/debug/lab1p2.o
+                  0x00047a                  _main
 
-.dinit            0x00047c          0x2
- .dinit           0x00047c          0x2 data_init
+.dinit            0x000480          0x2
+ .dinit           0x000480          0x2 data_init

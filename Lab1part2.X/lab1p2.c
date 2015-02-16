@@ -27,7 +27,7 @@ int main(void)
 
     while(1)
     {
-        testLCD();
+       testLCD();
     }
 
     return 0;

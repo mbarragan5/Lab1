@@ -13,10 +13,6 @@
 #define LCD_DATA   LATB
 #define LCD_RS  LATBbits.LATB7
 #define LCD_E   LATBbits.LATB6
-#define LCD_D7  LATBbits.LATB15
-#define LCD_D6  LATBbits.LATB14
-#define LCD_D5  LATBbits.LATB13
-#define LCD_D4  LATBbits.LATB12
 
 #define TRIS_D7  TRISBbits.TRISB15
 #define TRIS_D6  TRISBbits.TRISB14
@@ -41,10 +37,10 @@
 void writeFourBits(unsigned char word, unsigned int commandType, unsigned int delayAfter, unsigned int lower)
 {
     if(lower){
-        LCD_DATA=(0x0FFF & LCD_DATA) | ((word | 0x0F)<<12);
+        LCD_DATA=(0x0FFF & LCD_DATA) | ((word & 0x0F)<<12);
     }
    else{
-         LCD_DATA=(0x0FFF & LCD_DATA) | ((word | 0xF0)<<8);
+         LCD_DATA=(0x0FFF & LCD_DATA) | ((word & 0xF0)<<8);
    }
     LCD_RS = commandType; delayUs(1);
     LCD_E = 1;  delayUs(1); //minimum 230 ns
@@ -81,33 +77,37 @@ void initLCD(void)
     TRIS_D4 = OUT;
     TRIS_RS = OUT;
     TRIS_E = OUT;
-      LCD_DATA = (LCD_DATA & 0x0FFF) | 0x0000;
-    // Initilization sequence utilizes specific LCD commands before the general configuration
-    // commands can be utilized. The first few initilition commands cannot be done using the
-    // WriteLCD function. Additionally, the specific sequence and timing is very important.
-    for(i = 0; i < 15; i++) // wait 15 ms
+
+    LCD_DATA = (LCD_DATA & 0x0FFF) | 0x0000;
+    LCD_RS = 0;
+    LCD_E = 0;
+
+    for(i = 0; i < 15; i++)//initial delay for 15ms
     {
         delayUs(1000);
     }
-    writeFourBits(0x03,0,0,0);
+
+    writeFourBits(0x03,0,4100,LOWER);
+   
+    writeFourBits(0x03,0,100,LOWER);
+
+    writeLCD(0x32,0,100);
+
+    writeLCD(0x28,0,40);
+    writeLCD(0x08,0,40);
+
+    writeLCD(0x01,0,1500);
+
+    writeLCD(0x06,0,40);
+    writeLCD(0x0C,0,40);
+    delayUs(100);
+
+    //Finished first Part
+
     
-
-    for(i = 0; i < 41; i++) // wait 4.1 ms
-    {
-        delayUs(100);
-    }
-    writeFourBits(0x03,0,100,0);
-    writeFourBits(0x03,0,40,0);
-    writeFourBits(0x02,0,40,0);
-    writeLCD(0b00101100,0,0);
-    delayUs(40);
-    writeLCD(0b00001000,0,0);
-    delayUs(40);
-    writeLCD(0b00000001,0,0);
-    delayUs(1000);
-    writeLCD(0b00000111,0,0);
-    delayUs(40);
-
+    // Initilization sequence utilizes specific LCD commands before the general configuration
+    // commands can be utilized. The first few initilition commands cannot be done using the
+    // WriteLCD function. Additionally, the specific sequence and timing is very important.
 
 
     // Enable 4-bit interface
@@ -118,7 +118,9 @@ void initLCD(void)
     // options to control how the LCD will function.
     // TODO: Display On/Off Control
         // Turn Display (D) Off
+
     // TODO: Clear Display (The delay is not specified in the data sheet at this point. You really need to have the clear display delay here.
+
     // TODO: Entry Mode Set
         // Set Increment Display, No Shift (i.e. cursor move)
     // TODO: Display On/Off Control
@@ -140,7 +142,7 @@ void printStringLCD(const char* s)
  */
 void clearLCD()
 {
-
+    writeLCD(0x01,0,1700);
 }
 
 /*
@@ -159,14 +161,13 @@ void moveCursorLCD(unsigned char x, unsigned char y)
 void testLCD()
 {
     initLCD();
-    int i = 0;
     printCharLCD('c');
-    
+    /*
     for(i = 0; i < 1000; i++) delayUs(1000);
     clearLCD();
     printStringLCD("Hello!");
     moveCursorLCD(1, 2);
     for(i = 0; i < 1000; i++) delayUs(1000);
     printStringLCD("Hello!");
-    for(i = 0; i < 1000; i++) delayUs(1000);
+    for(i = 0; i < 1000; i++) delayUs(1000);*/
 }
