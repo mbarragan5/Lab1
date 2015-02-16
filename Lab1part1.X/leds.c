@@ -14,8 +14,11 @@ void initLEDs()
 
     //TODO: Initialize the appropriate pins to work with the LEDs
     //Pins 2 and 3;
-    TRISBbits.TRISB2 = 0; //LED1
-    TRISBbits.TRISB3 = 0; //LED2
+    TRISAbits.TRISA0 = 0; //LED1
+    TRISAbits.TRISA1 = 0; //LED2
+
+    ODCAbits.ODA0 = 1; //Open drain collector
+    ODCAbits.ODA1 = 1;
 
     LED1 = ON;
     LED2 = OFF;
@@ -27,7 +30,8 @@ void initSW2()
     //change notification interrupt.
      //pin 6
 
-    TRISBbits.TRISB6 = 1;
+    TRISBbits.TRISB2 = 1;
+    AD1PCFGbits.PCFG4 = 1;
 
     IFS1bits.CNIF = 0;
 
@@ -39,5 +43,6 @@ void initSW2()
      * datasheet. The internal pull-up should not be used for the switch
      * on the development board because one is already there.
      */
-    CNEN2bits.CN27IE = 1;
+    CNEN1bits.CN6IE = 1;
+    CNPU1bits.CN6PUE = 1; //pull up resistor
 }

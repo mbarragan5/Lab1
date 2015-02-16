@@ -49,7 +49,7 @@ int main(void)
             case RUN:
             {
                 LED1 = ON;
-                LED1 = OFF;
+                LED2 = OFF;
                 break;
             }
 
@@ -90,12 +90,12 @@ void _ISR _CNInterrupt(void)
     {
         if(currentState == RUN)
         {
-            currentState = STOP;
+            currentState = RUNDELAY;
         }
 
         else if(currentState == STOP)
         {
-            currentState = RUN;
+            currentState = STOPDELAY;
         }
     }
 
