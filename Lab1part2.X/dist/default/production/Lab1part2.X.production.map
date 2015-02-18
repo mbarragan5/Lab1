@@ -61,10 +61,11 @@ Program Memory  [Origin = 0x200, Length = 0xa9fc]
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200                0x9e            0xed  (237)
-.text                        0x29e               0x1de           0x2cd  (717)
-.dinit                       0x47c                 0x2             0x3  (3)
+.const                       0x29e                 0x8             0xc  (12)
+.text                        0x2a6               0x25e           0x38d  (909)
+.dinit                       0x504                 0x2             0x3  (3)
 
-                     Total program memory used (bytes):          0x3bd  (957) 1%
+                     Total program memory used (bytes):          0x489  (1161) 1%
 
 
 Data Memory  [Origin = 0x800, Length = 0x2000]
@@ -92,20 +93,20 @@ External Symbols in Program Memory (by address):
                   0x00023c                  __data_init_standard
                   0x00023c                  __data_init
                   0x00029a                  __DefaultInterrupt
-                  0x00029e                  _writeFourBits
-                  0x000302                  _writeLCD
-                  0x000322                  _printCharLCD
-                  0x000334                  _initLCD
-                  0x0003b0                  _printStringLCD
-                  0x0003b8                  _clearLCD
-                  0x0003c6                  _moveCursorLCD
-                  0x0003d0                  _testLCD
-                  0x0003dc                  _initLEDs
-                  0x0003f2                  _turnOnLED
-                  0x000410                  _delayUs
-                  0x000440                  _initUART
-                  0x000468                  _initCNForSW1
-                  0x000476                  _main
+                  0x0002a6                  _writeFourBits
+                  0x00030a                  _writeLCD
+                  0x00032a                  _printCharLCD
+                  0x00033c                  _initLCD
+                  0x0003b8                  _printStringLCD
+                  0x0003d4                  _clearLCD
+                  0x0003e2                  _moveCursorLCD
+                  0x00040c                  _testLCD
+                  0x000464                  _initLEDs
+                  0x00047a                  _turnOnLED
+                  0x000498                  _delayUs
+                  0x0004c8                  _initUART
+                  0x0004f0                  _initCNForSW1
+                  0x0004fe                  _main
 
 External Symbols in Program Memory (by name):
 
@@ -114,20 +115,20 @@ External Symbols in Program Memory (by name):
                   0x00023c                  __data_init_standard
                   0x00022c                  __psv_init
                   0x000200                  __resetPRI
-                  0x0003b8                  _clearLCD
-                  0x000410                  _delayUs
-                  0x000468                  _initCNForSW1
-                  0x000334                  _initLCD
-                  0x0003dc                  _initLEDs
-                  0x000440                  _initUART
-                  0x000476                  _main
-                  0x0003c6                  _moveCursorLCD
-                  0x000322                  _printCharLCD
-                  0x0003b0                  _printStringLCD
-                  0x0003d0                  _testLCD
-                  0x0003f2                  _turnOnLED
-                  0x00029e                  _writeFourBits
-                  0x000302                  _writeLCD
+                  0x0003d4                  _clearLCD
+                  0x000498                  _delayUs
+                  0x0004f0                  _initCNForSW1
+                  0x00033c                  _initLCD
+                  0x000464                  _initLEDs
+                  0x0004c8                  _initUART
+                  0x0004fe                  _main
+                  0x0003e2                  _moveCursorLCD
+                  0x00032a                  _printCharLCD
+                  0x0003b8                  _printStringLCD
+                  0x00040c                  _testLCD
+                  0x00047a                  _turnOnLED
+                  0x0002a6                  _writeFourBits
+                  0x00030a                  _writeLCD
 
 Memory Configuration
 
@@ -202,33 +203,33 @@ __CONFIG1         0x00abfe          0x2
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x1916
+.debug_info       0x000000       0x1937
  *(.debug_info)
  .debug_info      0x000000        0x5a1 build/default/production/cn.o
  .debug_info      0x0005a1        0x435 build/default/production/initLEDs.o
  .debug_info      0x0009d6        0x112 build/default/production/lab1p2.o
- .debug_info      0x000ae8        0x5a2 build/default/production/lcd.o
- .debug_info      0x00108a        0x355 build/default/production/timer.o
- .debug_info      0x0013df        0x537 build/default/production/UART.o
+ .debug_info      0x000ae8        0x5c3 build/default/production/lcd.o
+ .debug_info      0x0010ab        0x355 build/default/production/timer.o
+ .debug_info      0x001400        0x537 build/default/production/UART.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000        0x4ae
+.debug_abbrev     0x000000        0x4b0
  *(.debug_abbrev)
  .debug_abbrev    0x000000         0xbd build/default/production/cn.o
  .debug_abbrev    0x0000bd         0xb2 build/default/production/initLEDs.o
  .debug_abbrev    0x00016f         0x47 build/default/production/lab1p2.o
- .debug_abbrev    0x0001b6         0xf5 build/default/production/lcd.o
- .debug_abbrev    0x0002ab        0x10b build/default/production/timer.o
- .debug_abbrev    0x0003b6         0xf8 build/default/production/UART.o
+ .debug_abbrev    0x0001b6         0xf7 build/default/production/lcd.o
+ .debug_abbrev    0x0002ad        0x10b build/default/production/timer.o
+ .debug_abbrev    0x0003b8         0xf8 build/default/production/UART.o
 
-.debug_line       0x000000        0x6b2
+.debug_line       0x000000        0x72a
  *(.debug_line)
  .debug_line      0x000000         0xc3 build/default/production/cn.o
  .debug_line      0x0000c3        0x113 build/default/production/initLEDs.o
  .debug_line      0x0001d6         0xaf build/default/production/lab1p2.o
- .debug_line      0x000285        0x272 build/default/production/lcd.o
- .debug_line      0x0004f7         0xe6 build/default/production/timer.o
- .debug_line      0x0005dd         0xd5 build/default/production/UART.o
+ .debug_line      0x000285        0x2ea build/default/production/lcd.o
+ .debug_line      0x00056f         0xe6 build/default/production/timer.o
+ .debug_line      0x000655         0xd5 build/default/production/UART.o
 
 .debug_frame      0x000000        0x158
  *(.debug_frame)
@@ -1161,27 +1162,30 @@ __c30_signature
  __c30_signature
                   0x0002b1          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(data_init_standard.o)
 
-.text             0x00029e        0x1de
- .text            0x00029e        0x13e build/default/production/lcd.o
-                  0x00029e                  _writeFourBits
-                  0x000302                  _writeLCD
-                  0x000322                  _printCharLCD
-                  0x000334                  _initLCD
-                  0x0003b0                  _printStringLCD
-                  0x0003b8                  _clearLCD
-                  0x0003c6                  _moveCursorLCD
-                  0x0003d0                  _testLCD
- .text            0x0003dc         0x34 build/default/production/initLEDs.o
-                  0x0003dc                  _initLEDs
-                  0x0003f2                  _turnOnLED
- .text            0x000410         0x30 build/default/production/timer.o
-                  0x000410                  _delayUs
- .text            0x000440         0x28 build/default/production/UART.o
-                  0x000440                  _initUART
- .text            0x000468          0xe build/default/production/cn.o
-                  0x000468                  _initCNForSW1
- .text            0x000476          0x6 build/default/production/lab1p2.o
-                  0x000476                  _main
+.const              0x829e          0x8 load address 0x00029e  
+ .const             0x829e          0x8 build/default/production/lcd.o
 
-.dinit            0x00047c          0x2
- .dinit           0x00047c          0x2 data_init
+.text             0x0002a6        0x25e
+ .text            0x0002a6        0x1be build/default/production/lcd.o
+                  0x0002a6                  _writeFourBits
+                  0x00030a                  _writeLCD
+                  0x00032a                  _printCharLCD
+                  0x00033c                  _initLCD
+                  0x0003b8                  _printStringLCD
+                  0x0003d4                  _clearLCD
+                  0x0003e2                  _moveCursorLCD
+                  0x00040c                  _testLCD
+ .text            0x000464         0x34 build/default/production/initLEDs.o
+                  0x000464                  _initLEDs
+                  0x00047a                  _turnOnLED
+ .text            0x000498         0x30 build/default/production/timer.o
+                  0x000498                  _delayUs
+ .text            0x0004c8         0x28 build/default/production/UART.o
+                  0x0004c8                  _initUART
+ .text            0x0004f0          0xe build/default/production/cn.o
+                  0x0004f0                  _initCNForSW1
+ .text            0x0004fe          0x6 build/default/production/lab1p2.o
+                  0x0004fe                  _main
+
+.dinit            0x000504          0x2
+ .dinit           0x000504          0x2 data_init

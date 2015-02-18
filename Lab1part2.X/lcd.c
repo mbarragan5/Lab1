@@ -135,6 +135,10 @@ void initLCD(void)
 void printStringLCD(const char* s)
 {
     //TODO:
+    while(*s != 0)
+    {
+        printCharLCD(*s++);
+    }
 }
 
 /*
@@ -142,7 +146,7 @@ void printStringLCD(const char* s)
  */
 void clearLCD()
 {
-    writeLCD(0x01,0,1700);
+    writeLCD(0x01,0,1500);
 }
 
 /*
@@ -150,6 +154,12 @@ void clearLCD()
  */
 void moveCursorLCD(unsigned char x, unsigned char y)
 {
+    unsigned char value = 0x80;
+
+    y = y << 4;
+    x = x|y;
+    value = value|x;
+    writeLCD(0xAA,0,40);
 
 }
 
@@ -160,14 +170,15 @@ void moveCursorLCD(unsigned char x, unsigned char y)
  */
 void testLCD()
 {
+    int i;
     initLCD();
     printCharLCD('c');
-    /*
+    
     for(i = 0; i < 1000; i++) delayUs(1000);
     clearLCD();
     printStringLCD("Hello!");
     moveCursorLCD(1, 2);
     for(i = 0; i < 1000; i++) delayUs(1000);
     printStringLCD("Hello!");
-    for(i = 0; i < 1000; i++) delayUs(1000);*/
+    for(i = 0; i < 1000; i++) delayUs(1000);
 }
