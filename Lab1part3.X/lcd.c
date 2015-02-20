@@ -219,7 +219,7 @@ void getTimeString(int time)
     int mill;
     int sec;
     int min;
-
+    int timeTemp=time;
     char M1;
     char M2;
     char S1;
@@ -227,10 +227,10 @@ void getTimeString(int time)
     char F1;
     char F2;
 
-    mill = time%60;
-    time = time/60;
-    sec = time%60;
-    min = time/60;
+    mill = timeTemp%100;
+    timeTemp = time/100;
+    sec = timeTemp%60;
+    min = timeTemp/60;
 
     M1 = getChar(min/10);
     moveCursorLCD(1, 0);

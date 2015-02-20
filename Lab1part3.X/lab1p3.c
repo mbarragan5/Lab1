@@ -1,8 +1,9 @@
 // ******************************************************************************************* //
 //
-// File:         lab1p1.c
+// File:         lab1p3.c
 // Date:
-// Authors:
+// Authors: Matthew Barragan, Julian Bostick, Jonathan Avila,
+//          Christian Becerra, Luis Hernandez
 //
 // Description: Part 1 for lab 1
 // ******************************************************************************************* //
@@ -45,9 +46,9 @@ int main(void)
     initSW2();
     initCNForSW1();
     initLCD();
-
+    time=0;
     currentState = STOP;
-
+    int i;
     while(1)
     {
         //TODO: Using a finite-state machine, define the behavior of the LEDs
@@ -60,7 +61,10 @@ int main(void)
                 clearLCD();
                 moveCursorLCD(0, 0);
                 printStringLCD("Running");
-                delayUs(DELAY);
+                for(i=0;i<4;i++)
+                {
+                    delayUs(1000);
+                }
                 time++;
                 getTimeString(time);
                 break;

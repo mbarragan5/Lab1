@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=timer.c leds.c lcd.c lab1p3.c cn.c initLEDS.c UART.c
+SOURCEFILES_QUOTED_IF_SPACED=timer.c leds.c lcd.c lab1p3.c cn.c UART.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/timer.o ${OBJECTDIR}/leds.o ${OBJECTDIR}/lcd.o ${OBJECTDIR}/lab1p3.o ${OBJECTDIR}/cn.o ${OBJECTDIR}/initLEDS.o ${OBJECTDIR}/UART.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/timer.o.d ${OBJECTDIR}/leds.o.d ${OBJECTDIR}/lcd.o.d ${OBJECTDIR}/lab1p3.o.d ${OBJECTDIR}/cn.o.d ${OBJECTDIR}/initLEDS.o.d ${OBJECTDIR}/UART.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/timer.o ${OBJECTDIR}/leds.o ${OBJECTDIR}/lcd.o ${OBJECTDIR}/lab1p3.o ${OBJECTDIR}/cn.o ${OBJECTDIR}/UART.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/timer.o.d ${OBJECTDIR}/leds.o.d ${OBJECTDIR}/lcd.o.d ${OBJECTDIR}/lab1p3.o.d ${OBJECTDIR}/cn.o.d ${OBJECTDIR}/UART.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/timer.o ${OBJECTDIR}/leds.o ${OBJECTDIR}/lcd.o ${OBJECTDIR}/lab1p3.o ${OBJECTDIR}/cn.o ${OBJECTDIR}/initLEDS.o ${OBJECTDIR}/UART.o
+OBJECTFILES=${OBJECTDIR}/timer.o ${OBJECTDIR}/leds.o ${OBJECTDIR}/lcd.o ${OBJECTDIR}/lab1p3.o ${OBJECTDIR}/cn.o ${OBJECTDIR}/UART.o
 
 # Source Files
-SOURCEFILES=timer.c leds.c lcd.c lab1p3.c cn.c initLEDS.c UART.c
+SOURCEFILES=timer.c leds.c lcd.c lab1p3.c cn.c UART.c
 
 
 CFLAGS=
@@ -117,13 +117,6 @@ ${OBJECTDIR}/cn.o: cn.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE)  cn.c  -o ${OBJECTDIR}/cn.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/cn.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/cn.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/initLEDS.o: initLEDS.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/initLEDS.o.d 
-	@${RM} ${OBJECTDIR}/initLEDS.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  initLEDS.c  -o ${OBJECTDIR}/initLEDS.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/initLEDS.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/initLEDS.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
 ${OBJECTDIR}/UART.o: UART.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/UART.o.d 
@@ -166,13 +159,6 @@ ${OBJECTDIR}/cn.o: cn.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/cn.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  cn.c  -o ${OBJECTDIR}/cn.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/cn.o.d"        -g -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/cn.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/initLEDS.o: initLEDS.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/initLEDS.o.d 
-	@${RM} ${OBJECTDIR}/initLEDS.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  initLEDS.c  -o ${OBJECTDIR}/initLEDS.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/initLEDS.o.d"        -g -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/initLEDS.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/UART.o: UART.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 

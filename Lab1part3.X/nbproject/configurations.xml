@@ -9,7 +9,6 @@
       <itemPath>leds.h</itemPath>
       <itemPath>lcd.h</itemPath>
       <itemPath>cn.h</itemPath>
-      <itemPath>initLEDS.h</itemPath>
       <itemPath>UART.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -24,7 +23,6 @@
       <itemPath>lcd.c</itemPath>
       <itemPath>lab1p3.c</itemPath>
       <itemPath>cn.c</itemPath>
-      <itemPath>initLEDS.c</itemPath>
       <itemPath>UART.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
@@ -172,6 +170,7 @@
         <property key="save-temps" value="false"/>
       </C30Global>
       <PICkit3PlatformTool>
+        <property key="firmware.download.all" value="false"/>
       </PICkit3PlatformTool>
     </conf>
   </confs>
